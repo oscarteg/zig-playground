@@ -84,7 +84,7 @@ pub const HTTPContext = struct {
     }
 
     pub fn debugPrintRequest(self: *HTTPContext) void {
-        print("method: {s}\nuri: {s}\nversion:{s}\n", .{ self.method, self.uri, self.version });
+        print("method: {}\nuri: {s}\nversion:{}\n", .{ self.method, self.uri, self.version });
         var headers_iter = self.headers.iterator();
         while (headers_iter.next()) |entry| {
             print("{s}: {s}\n", .{ entry.key_ptr.*, entry.value_ptr.* });
@@ -131,7 +131,7 @@ pub const HTTPServer = struct {
     };
     pub const Config = struct {
         address: []const u8 = "127.0.0.1",
-        port: u16 = 8050,
+        port: u16 = 9050,
     };
 
     pub fn deinit(self: *HTTPServer) void {

@@ -4,7 +4,7 @@ const assert = std.debug.assert;
 
 // A struct definition doesn't include a name.
 // Assigning the struct to a variable gives it a name.
-const Point = struct {
+                    const Point = struct {
     x: f64,
     y: f64,
     z: f64,

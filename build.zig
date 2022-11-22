@@ -14,11 +14,13 @@ pub fn build(b: *std.build.Builder) void {
     const exe = b.addExecutable("zig-playground", "src/main.zig");
     exe.setTarget(target);
     exe.setBuildMode(mode);
-    exe.addIncludeDir("/opt/homebrew/include/SDL2");
-    exe.addLibPath("/usr/local/lib");
+    exe.addIncludePath("/opt/homebrew/include/SDL2");
+    exe.addLibraryPath("/usr/local/lib");
     exe.linkSystemLibrary("sdl2");
     exe.linkLibC();
     exe.install();
+
+    exe.use_stage1 = true;
 
     const run_cmd = exe.run();
     run_cmd.step.dependOn(b.getInstallStep());
