@@ -160,6 +160,7 @@ pub const HTTPServer = struct {
         try stream_server.listen(self.address);
         while (true) {
             const connection = try stream_server.accept();
+
             var conn = try self.allocator.create(Connection);
             conn.* = .{
                 .frame = async handler(self.allocator, connection.stream),

@@ -1,4 +1,3 @@
-// Copied from https://github.com/tsoding/zigout/blob/master/src/main.zig
 const std = @import("std");
 
 const math = std.math;
@@ -223,12 +222,4 @@ pub fn main() !void {
 
         c.SDL_Delay(1000 / FPS);
     }
-}
-
-extern fn consoleLog(message: [*]const u8, length: u8) void;
-
-export fn add(a: i32, b: i32) i32 {
-    const message = "happy";
-    consoleLog(message, message.len);
-    return a + b;
 }

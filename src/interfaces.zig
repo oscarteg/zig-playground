@@ -12,37 +12,13 @@ const Dog = struct {
     }
 };
 
-// const Animal = union(enum) {
-//     cat: Cat,
-//     dog: Dog,
-//
-//     pub fn talk(self: Animal) void {
-//         switch (self) {
-//             .cat => |cat| cat.talk(),
-//             .dog => |dog| dog.talk(),
-//         }
-//     }
-// };
-//
-
 const Snake = struct {
     pub fn not() void {
         std.debug.print("lisp", .{});
     }
 };
 
-const Animal = union(enum) {
-    cat: Cat,
-    dog: Dog,
-    snake: Snake,
-
-    pub fn talk(self: Animal) void {
-        switch (self) {
-            .snake => std.debug.print("Ssss~~~", .{}),
-            inline else => |case| case.talk(),
-        }
-    }
-};
+const Animal = ;
 
 pub fn main() anyerror!void {
     const nums = [_]usize{ 1, 2, 3 };
